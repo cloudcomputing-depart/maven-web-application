@@ -17,12 +17,13 @@ node{
     }
     stage('uploadartifactintonexus'){
           sh"${mavenhome}/bin/mvn clean deploy"
+          }
     stage('deployintotomcatserver'){
         sshagent(['882cedda-9f1f-4b4a-a9e8-640be4011313']) {
        sh"scp -o strictHostKeychecking=no target/maven-web-application.war ec2-user@172.31.5.245:/opt/apache-tomcat-9.0.76/webapps/"
        }
     }
-*/
-    }
+
     
+  */  
 }
